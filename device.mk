@@ -150,7 +150,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     RealmeDoze \
     RealmeProximityHelper \
-    RealmeParts
+    RealmeParts \
+    Klapse
 
 # Fingerprint
 PRODUCT_PACKAGES += \
