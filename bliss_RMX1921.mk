@@ -5,7 +5,7 @@
 #
 
 TARGET_BOOT_ANIMATION_RES := 1080
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/bliss/config/common.mk)
 
 # Inherit from RMX1921 device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
@@ -13,7 +13,7 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 PRODUCT_BRAND := Realme
 PRODUCT_DEVICE := RMX1921
 PRODUCT_MANUFACTURER := Realme
-PRODUCT_NAME := lineage_RMX1921
+PRODUCT_NAME := bliss_RMX1921
 PRODUCT_MODEL := XT
 
 PRODUCT_GMS_CLIENTID_BASE := android-oppo
@@ -27,3 +27,6 @@ BUILD_FINGERPRINT := google/redfin/redfin:11/RQ2A.210305.006/7119741:user/releas
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=$(BUILD_FINGERPRINT)
+
+#Official Build
+BLISS_BUILDTYPE=OFFICIAL
