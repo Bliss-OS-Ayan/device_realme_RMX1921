@@ -109,7 +109,6 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
     libstdc++.vendor \
-    GoogleCamera \
     libgui_vendor \
     android.frameworks.displayservice@1.0 \
     android.hardware.camera.device@3.4 \
