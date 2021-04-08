@@ -369,7 +369,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml \
-    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:system/product/etc/permissions/privapp-permissions-qti.xml
+    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:system/product/etc/permissions/privapp-permissions-qti.xml \
+    $(LOCAL_PATH)/configs/privapp_whitelist_org.device.Realmeparts.xml:system/etc/permissions/privapp_whitelist_org.device.Realmeparts.xml
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -396,11 +397,6 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     init.RealmeParts.rc \
     ueventd.qcom.rc
-
-# Spectrum
-PRODUCT_PACKAGES += \
-   init.spectrum.rc \
-   init.spectrum.sh
 
 # Recovery
 PRODUCT_PACKAGES += \
