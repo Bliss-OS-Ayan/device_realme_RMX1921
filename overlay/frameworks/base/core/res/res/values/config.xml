@@ -1229,4 +1229,7 @@
 
     <!-- Default fod pressed color -->
     <integer name="config_fod_pressed_color">1</integer>
+
+    <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
+    <integer name="config_screenRecorderMaxFramerate">60</integer>
 </resources>
