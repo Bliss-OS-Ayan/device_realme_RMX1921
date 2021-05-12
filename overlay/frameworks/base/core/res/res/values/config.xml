@@ -1226,4 +1226,7 @@
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">false</bool>
+
+    <!-- Default fod pressed color -->
+    <integer name="config_fod_pressed_color">1</integer>
 </resources>
