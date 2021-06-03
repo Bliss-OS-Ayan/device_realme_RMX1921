@@ -115,6 +115,10 @@ PRODUCT_PACKAGES += \
     libdng_sdk.vendor \
     GcamGo
 
+# Charger
+PRODUCT_PACKAGES += \
+    libsuspend
+
 # Context Hub
 PRODUCT_PACKAGES += \
     android.hardware.contexthub@1.0-impl.generic \
