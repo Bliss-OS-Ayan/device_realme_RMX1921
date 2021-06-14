@@ -42,6 +42,13 @@ void property_override(char const prop[], char const value[], bool add = true) {
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
+void property_override_dual(char const system_prop[], char const vendor_prop[],
+    char const value[])
+{
+    property_override(system_prop, value);
+    property_override(vendor_prop, value);
+}
+
 void vendor_load_properties() {
 
     string oppo_sku = GetProperty("ro.boot.product.hardware.sku", "");
@@ -53,4 +60,7 @@ void vendor_load_properties() {
     } else if (oppo_sku == "secure_element_uicc") {
         property_override("ro.boot.product.hardware.sku", "RMX1921");
     }
+
+    // fingerprint
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/coral/coral:11/RQ3A.210605.005/7349499:user/release-keys");
 }
