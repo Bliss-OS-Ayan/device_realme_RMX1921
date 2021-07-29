@@ -29,7 +29,7 @@ import android.os.UserHandle;
 import androidx.preference.PreferenceManager;
 import org.device.RealmeParts.ModeSwitch.GameModeSwitch;
 import org.device.RealmeParts.kcal.DisplayCalibration;
-import org.device.RealmeParts.DiracUtils;
+import org.device.RealmeParts.dirac.DiracUtils;
 
 public class Startup extends BroadcastReceiver {
 
@@ -62,7 +62,7 @@ public class Startup extends BroadcastReceiver {
         enabled = sharedPrefs.getBoolean (RealmeParts.KEY_GAME_SWITCH, false);
         restore (GameModeSwitch.getFile ( ), enabled);
         context.startService (new Intent (context, DisplayCalibration.class));
-        context.startService(new Intent(context, DiracService.class));
+        new DiracUtils(context).onBootCompleted();
         enabled = sharedPrefs.getBoolean(RealmeParts.KEY_DC_SWITCH, false);
         restore(DCModeSwitch.getFile(), enabled);
         enabled = sharedPrefs.getBoolean(RealmeParts.KEY_HBM_SWITCH, false);
