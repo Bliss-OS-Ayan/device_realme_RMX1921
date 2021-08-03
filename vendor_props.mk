@@ -114,16 +114,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    debug.stagefright.omx_default_rank.sw-audio=1 \
    debug.stagefright.omx_default_rank=0
 
-# Dalvik
-PRODUCT_PROPERTY_OVERRIDES += \
-   dalvik.vm.heapstartsize=16m \
-   dalvik.vm.heapgrowthlimit=384m \
-   dalvik.vm.heapsize=512m \
-   dalvik.vm.heaptargetutilization=0.75 \
-   dalvik.vm.heapminfree=4m \
-   dalvik.vm.heapmaxfree=16m \
-   dalvik.vm.dex2oat64.enabled=true
-
 # Dirac algo tsx 9/12
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dirac.acs.controller=qem \

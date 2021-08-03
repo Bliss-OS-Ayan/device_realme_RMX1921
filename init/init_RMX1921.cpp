@@ -13,6 +13,7 @@
 
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
+#include <sys/sysinfo.h>
 
 #include <android-base/properties.h>
 #include "property_service.h"
@@ -47,6 +48,33 @@ void property_override_dual(char const system_prop[], char const vendor_prop[],
 {
     property_override(system_prop, value);
     property_override(vendor_prop, value);
+
+void load_dalvikvm_properties() {
+  struct sysinfo sys;
+  sysinfo(&sys);
+  if (sys.totalram > 6144ull * 1024 * 1024) {
+    // from - phone-xhdpi-8192-dalvik-heap.mk
+    property_override("dalvik.vm.heapstartsize", "24m");
+    property_override("dalvik.vm.heapgrowthlimit", "256m");
+    property_override("dalvik.vm.heaptargetutilization", "0.46");
+    property_override("dalvik.vm.heapmaxfree", "48m");
+    }
+  else if (sys.totalram > 4096ull * 1024 * 1024) {
+    // from - phone-xhdpi-6144-dalvik-heap.mk
+    property_override("dalvik.vm.heapstartsize", "16m");
+    property_override("dalvik.vm.heapgrowthlimit", "256m");
+    property_override("dalvik.vm.heaptargetutilization", "0.5");
+    property_override("dalvik.vm.heapmaxfree", "32m");
+    }
+  else {
+    // from - phone-xhdpi-4096-dalvik-heap.mk
+    property_override("dalvik.vm.heapstartsize", "8m");
+    property_override("dalvik.vm.heapgrowthlimit", "192m");
+    property_override("dalvik.vm.heaptargetutilization", "0.6");
+    property_override("dalvik.vm.heapmaxfree", "16m");
+  }
+  property_override("dalvik.vm.heapsize", "512m");
+  property_override("dalvik.vm.heapminfree", "8m");
 }
 
 void vendor_load_properties() {
@@ -63,4 +91,7 @@ void vendor_load_properties() {
 
     // fingerprint
     property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/coral/coral:11/RQ3A.210705.001/7380771:user/release-keys");
+
+  // dalvikvm props
+  load_dalvikvm_properties();
 }
