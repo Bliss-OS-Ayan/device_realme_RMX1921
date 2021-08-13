@@ -404,6 +404,7 @@ PRODUCT_PACKAGES += \
     init.oppo.reserve.rc \
     init.msm.usb.configfs.rc \
     init.oppo.fingerprints.sh \
+    init.performance_level.rc \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
     init.qcom.rc \
