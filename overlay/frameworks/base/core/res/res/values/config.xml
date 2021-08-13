@@ -1232,4 +1232,7 @@
 
     <!-- Screen off delay --> 
     <integer name="config_screen_off_delay">0</integer>
+
+    <!-- Whether to show settings for hiding notch fill -->
+    <bool name="config_showHideNotchSettings">true</bool>
 </resources>
